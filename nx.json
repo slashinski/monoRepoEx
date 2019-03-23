@@ -13,6 +13,15 @@
     },
     "mono-repo-ex-e2e": {
       "tags": []
+    },
+    "app1": {
+      "tags": ["fe"]
+    },
+    "app1-e2e": {
+      "tags": []
+    },
+    "entlib": {
+      "tags": ["fe"]
     }
   }
 }
