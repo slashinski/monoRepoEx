@@ -1,0 +1,18 @@
+{
+  "npmScope": "monoRepoEx",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "mono-repo-ex": {
+      "tags": []
+    },
+    "mono-repo-ex-e2e": {
+      "tags": []
+    }
+  }
+}

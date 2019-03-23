@@ -1,0 +1,142 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "mono-repo-ex": {
+      "root": "apps/mono-repo-ex/",
+      "sourceRoot": "apps/mono-repo-ex/src",
+      "projectType": "application",
+      "prefix": "monoRepoEx",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/mono-repo-ex",
+            "index": "apps/mono-repo-ex/src/index.html",
+            "main": "apps/mono-repo-ex/src/main.ts",
+            "polyfills": "apps/mono-repo-ex/src/polyfills.ts",
+            "tsConfig": "apps/mono-repo-ex/tsconfig.app.json",
+            "assets": [
+              "apps/mono-repo-ex/src/favicon.ico",
+              "apps/mono-repo-ex/src/assets"
+            ],
+            "styles": ["apps/mono-repo-ex/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/mono-repo-ex/src/environments/environment.ts",
+                  "with": "apps/mono-repo-ex/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mono-repo-ex:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mono-repo-ex:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mono-repo-ex:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/mono-repo-ex/tsconfig.app.json",
+              "apps/mono-repo-ex/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/mono-repo-ex/jest.config.js",
+            "tsConfig": "apps/mono-repo-ex/tsconfig.spec.json",
+            "setupFile": "apps/mono-repo-ex/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "mono-repo-ex-e2e": {
+      "root": "apps/mono-repo-ex-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/mono-repo-ex-e2e/cypress.json",
+            "tsConfig": "apps/mono-repo-ex-e2e/tsconfig.e2e.json",
+            "devServerTarget": "mono-repo-ex:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mono-repo-ex:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/mono-repo-ex-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss",
+      "framework": "angular"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "mono-repo-ex"
+}
