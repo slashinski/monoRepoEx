@@ -28,6 +28,12 @@
     },
     "todos-e2e": {
       "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "data": {
+      "tags": []
     }
   }
 }

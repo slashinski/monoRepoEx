@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@monoRepoEx/entlib": ["libs/entlib/src/index.ts"]
+      "@monoRepoEx/entlib": ["libs/entlib/src/index.ts"],
+      "@monoRepoEx/data": ["libs/data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -2,16 +2,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-interface Todo {
-  title: string;
-}
+
 @Component({
   selector: 'monoRepoEx-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  // title = 'Todos';
+  title = 'Todos';
   // todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
 
   todos: Todo[] = [];
